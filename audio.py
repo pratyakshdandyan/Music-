@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 
 
-bot=commands.Bot(command_prefix='a.')
+bot=commands.Bot(command_prefix='.')
 
 from discord import opus
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
@@ -56,6 +56,7 @@ async def checking_voice(ctx):
 
 @bot.event
 async def on_ready():
+   bot.loop.create_task(all_false())
    await bot.change_presence(game=discord.Game(name='Pnada ka beta'))
    print(bot.user.name)
     
