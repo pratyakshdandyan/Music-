@@ -56,6 +56,7 @@ async def checking_voice(ctx):
 
 @bot.event
 async def on_ready():
+   await bot.change_presence(game=discord.Game(name='Pnada ka beta'))
    print(bot.user.name)
     
 @bot.command(pass_context=True)
