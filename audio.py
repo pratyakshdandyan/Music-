@@ -159,7 +159,14 @@ async def leave(ctx):
     await voice_client.disconnect()
     songs.clear()
 
-  
+@bot.command(pass_context=True)
+async def clear(ctx, amount=100):
+   channel = ctx.message.channel
+   message = []
+   async for message in bot.logs_from(channel, limit=int(amount)):
+      messages.append(message)
+   await bot.delete_messages(messages)
+   await bot.say('messages deleted.')
    
   
 
