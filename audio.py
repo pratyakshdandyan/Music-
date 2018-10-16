@@ -53,3 +53,28 @@ async def checking_voice(ctx):
             await bot.say("{} left because there was no audio playing for a while".format(bot.user.name))
         except:
             pass
+
+@bot.event
+async def on_ready():
+   print(bot.user.name)
+    
+@bot.command(pass_context=True)
+async def join(ctx):
+   channel = ctx.message.author.voice.voice_channel
+   await bot.join_voice_channel(channel)
+  
+@bot.command(pass_context=True)
+async def leave(ctx):
+   server = ctx.message.server
+   voice_bot = bot.voice_bot_in(server)
+   await voice_bot.disconnect()
+    
+@bot.command(pass_context=True)
+async def play(ctx, url):
+   server = ctx.message.server
+   voice_bot = bot.voice_bot_in(server)
+   player = await voice_bot.create_ytdl_player(url)
+   player[server.id] = player
+   player.start()
+    
+bot.run(os.environ['BOT_TOKEN'])
