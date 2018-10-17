@@ -165,7 +165,13 @@ async def ping(ctx):
     await bot.say(":ping_pong: ping!! xSSS")
     print ("user has pinged")
 
-   
+@bot.command(pass_context=True)
+async def embed(ctx):
+    embed = discord.Embed(title="test", description="my name jeff", color=0x00ff00)
+    embed.set_footer(text="this is a footer")
+    embed.set_author(name="Will Ryan of DAGames")
+    embed.add_field(name="This is a field", value="no it isn't", inline=True)
+    await bot.say(embed=embed)
    
 
 
