@@ -160,7 +160,10 @@ async def leave(ctx):
     await voice_client.disconnect()
     songs.clear()
 
-
+@bot.command(pass_context=True)
+async def ping(ctx):
+    await bot.say(":ping_pong: ping!! xSSS")
+    print ("user has pinged")
 
    
    
