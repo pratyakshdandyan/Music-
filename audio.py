@@ -186,7 +186,13 @@ async def serverinfo(ctx):
     embed.add_field(name="Members", value=len(ctx.message.server.members))
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)    
-    
+  
+@bot.command(pass_context=True)
+
+async def kick(ctx, user: discord.Member):
+    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
+    await bot.kick(user)
+  
 @bot.command(pass_context=True)
 async def embed(ctx):
     embed = discord.Embed(title="test", description="my name imran", color=0x00ff00)
