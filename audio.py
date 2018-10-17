@@ -195,7 +195,7 @@ async def kick(ctx, user: discord.Member):
  
 @bot.command(pass_context=True)
 async def avatar(ctx):
-    await bot.say("The users avatar is: {}".format(url=user.avatar_url))
+    await bot.say("The users avatar is: {}".format(url=user.name.avatar_url))
 
 
     
