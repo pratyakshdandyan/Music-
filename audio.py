@@ -194,9 +194,11 @@ async def kick(ctx, user: discord.Member):
     await bot.kick(user)
  
 @bot.command(pass_context=True)
-async def ban(ctx, user: discord.Member):
-    await bot.say("🤕 ban, {}. Ya banned!".format(user.name))
-    await bot.ban(user)
+async def avatar(ctx):
+    await bot.say("The users avatar is: {}".format(url=user.avatar_url))
+
+
+    
     
 @bot.command(pass_context=True)
 async def embed(ctx):
