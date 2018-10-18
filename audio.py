@@ -193,12 +193,6 @@ async def kick(ctx, user: discord.Member):
     await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
     await bot.kick(user)
  
-@bot.command(pass_context=True)
-async def ban(ctx, user: discord.Member):
-    if ctx.message.author.server_permissions.administrator:
-        user = ctx.message.author
-        role = discord.utils.get(user.server.roles, name="banned")
-        await client.add_roles(user, role)
      
      
 
