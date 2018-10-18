@@ -199,8 +199,8 @@ async def ban(ctx, user: discord.Member):
         user = ctx.message.author
         role = discord.utils.get(user.server.roles, name="banned")
         await client.add_roles(user, role)
-     else:
-       embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
+     
+       embed = discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
        await bot.say(embed=embed)
 
 
