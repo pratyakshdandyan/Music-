@@ -180,13 +180,18 @@ async def info(ctx, user: discord.Member):
 async def serverinfo(ctx):
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
     embed.set_author(name="Will Ryan of DAGames")
-    embed.add_field(name="Created_at", value=ctx.message.server.created_at, inline=True)
+    embed.add_field(name="Created at", value=ctx.message.server.created_at, inline=True)
     embed.add_field(name="Owner", value=ctx.message.server.owner, inline=True)
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
     embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
+    embed.add_field(name="Channels", value=ctx.message.server.channels, inline=True)
+    embed.add_field(name="Default role, value=ctx.message.server.default_role, inline=True)
+    embed.add_field(name="AFK channel", value=ctx.message.server.afk_channel, inline=True)
+    embed.add_field(name="Verification", value=ctx.message.server.verification_level, inline=True)
+    embed.add_field(name="Region", value=ctx.message.server.region, inline=True)
     embed.add_field(name="Roles", value=len(ctx.message.server.roles), inline=True)
     embed.add_field(name="Members", value=len(ctx.message.server.members))
- 
+    embed.add_field(name="Emojis", value=ctx.message.server.emojis, inline=True)
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)    
       
