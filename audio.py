@@ -201,8 +201,14 @@ async def kick(ctx, user: discord.Member):
     await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
     await bot.kick(user)
  
-     
-     
+@bot.command(pass_context=True)
+async def clear(ctx, amount=100):
+   channel = ctx.message.channel
+   message = []
+   async for message in client.logs_from(channel, limit=int(amount)):
+      messages.append(message)
+   await bot.delete_messages(messages)
+   await bot.say("message deleted")
 
 
 
