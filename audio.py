@@ -205,7 +205,7 @@ async def kick(ctx, user: discord.Member):
 async def clear(ctx, amount=100):
    channel = ctx.message.channel
    message = []
-   async for message in client.logs_from(channel, limit=int(amount)):
+   async for message in bot.logs_from(channel, limit=int(amount)):
       messages.append(message)
    await bot.delete_messages(messages)
    await bot.say("message deleted")
