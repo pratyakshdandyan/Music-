@@ -191,7 +191,7 @@ async def serverinfo(ctx):
     embed.add_field(name="Region", value=ctx.message.server.region, inline=True)
     embed.add_field(name="Roles", value=len(ctx.message.server.roles), inline=True)
     embed.add_field(name="Members", value=len(ctx.message.server.members))
-    embed.add_field(name="Emojis", value=ctx.message.server.emojis, inline=True)
+
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)    
       
