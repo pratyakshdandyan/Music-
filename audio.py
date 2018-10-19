@@ -180,13 +180,15 @@ async def info(ctx, user: discord.Member):
 async def serverinfo(ctx):
     embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
     embed.set_author(name="Will Ryan of DAGames")
+    embed.add_field(name="Owner", value=ctx.message.server.owner, inline=True)
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
     embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
     embed.add_field(name="Roles", value=len(ctx.message.server.roles), inline=True)
     embed.add_field(name="Members", value=len(ctx.message.server.members))
+ 
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)    
-  
+      
 @bot.command(pass_context=True)
 
 async def kick(ctx, user: discord.Member):
