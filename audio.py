@@ -184,7 +184,7 @@ async def serverinfo(ctx):
     embed.add_field(name="Owner", value=ctx.message.server.owner, inline=True)
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
     embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
-    embed.add_field(name="Channels", value=ctx.message.server.channels, inline=True)
+
     
     embed.add_field(name="AFK channel", value=ctx.message.server.afk_channel, inline=True)
     embed.add_field(name="Verification", value=ctx.message.server.verification_level, inline=True)
