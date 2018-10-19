@@ -201,7 +201,10 @@ async def kick(ctx, user: discord.Member):
     await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
     await bot.kick(user)
  
-
+@bot.command(pass_context=True, no_pm=True)
+async def avatar(ctx, member: discord.Member):
+    """User Avatar"""
+    await bot.reply("{}".format(member.avatar_url))
 
 
 
