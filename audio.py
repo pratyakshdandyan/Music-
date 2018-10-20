@@ -9,7 +9,7 @@ from discord.ext.commands import Bot
 
 
 bot=commands.Bot(command_prefix='.')
-os.chdir(r'
+os.chdir(r'https://github.com/Iamanerror/Music-')
 
 from discord import opus
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
