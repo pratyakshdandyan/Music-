@@ -209,7 +209,18 @@ async def avatar(ctx, member: discord.Member):
     """User Avatar"""
     await bot.reply("{}".format(member.avatar_url))
 
-            
+@bot.event
+async def on_member_join(member):
+    server = member.server.default_channel
+    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the 
+    rules and enjoy your stay.'
+    await bot.send_message(server, fmt.format(member, member.server))
+
+@bot.event
+async def on_member_remove(member):
+    server = member.server.default_channel
+    fmt = '{0.mention} has left/been kicked from the server.'
+    await bot.send_message(server, fmt.format(member, member.server))          
     
     
 @bot.command(pass_context=True)
