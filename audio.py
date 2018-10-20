@@ -231,7 +231,7 @@ async def coinflip(ctx, guess: str, amount: float):
         remove_dollars(author, amount)
 
 @bot.command(pass_contaxt=True)
-async def ban(self, ctx, user: discord.Member):
+async def ban(ctx, user: discord.Member):
     await bot.say("⚒️ booo!!, {}. Ya banned!".format(user.name))
     await bot.ban(user)
   
