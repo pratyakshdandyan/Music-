@@ -2,6 +2,7 @@ import discord
 import asyncio
 import youtube_dl
 import os
+import typing
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -206,7 +207,13 @@ async def avatar(ctx, member: discord.Member):
     """User Avatar"""
     await bot.reply("{}".format(member.avatar_url))
 
-
+@bot.command()
+async def ban(ctx, members: commands.Greedy[discord.Member],
+                   delete_days: typing.Optional[int] = 0, *,
+                   reason: str):
+    """Mass bans members with an optional delete_days parameter"""
+    for member in members:
+        await member.ban(delete_message_days=delete_days, reason=reason)
 
     
     
