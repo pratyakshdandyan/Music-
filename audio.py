@@ -230,7 +230,7 @@ async def coinflip(ctx, guess: str, amount: float):
         await bot.say("You lost!")
         remove_dollars(author, amount)
 
-@bot.command(pass_contaxt=true)
+@bot.command(pass_contaxt=True)
 async def ban(self, ctx, user:discord.Member, *, reason:str=None):
         """Bans the specified user from the server"""
         if reason is None:
