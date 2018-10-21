@@ -3,7 +3,7 @@ import asyncio
 import youtube_dl
 import os
 import typing
-
+import praw
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -230,7 +230,10 @@ async def coinflip(ctx, guess: str, amount: float):
         await bot.say("You lost!")
         remove_dollars(author, amount)
 
-    
+@bot.command()
+async def meme():
+await bot.say(---)   
+#--- WOULD BE THE REDDIT URL
     
 @bot.command(pass_context=True)
 async def embed(ctx):
