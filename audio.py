@@ -210,25 +210,7 @@ async def avatar(ctx, member: discord.Member):
     await bot.reply("{}".format(member.avatar_url))
 
   
-@bot.command(pass_context=True)
-async def coinflip(ctx, guess: str, amount: float):
-    guesses = ('heads', 'tails')
-    guess = guess.lower()
-    if guess not in guesses:
-        await bot.say("Invalid guess.")
-        return
-    author = ctx.message.author
-    balance = get_dollars(author)
-    if balance < amount:
-        await bot.say(f"You don't have that much money.  Your balance is ${balance:.2f}")
-        return
-    result = random.sample(guesses)
-    if result == guess:
-        await bot.say("You won!")
-        add_dollars(author, amount)
-    else:
-        await bot.say("You lost!")
-        remove_dollars(author, amount)
+
 
 @bot.event
 
