@@ -4,12 +4,16 @@ import youtube_dl
 import os
 import typing
 import praw
+import random
 from discord.ext import commands
 from discord.ext.commands import Bot
 
 
 bot=commands.Bot(command_prefix='.')
 
+reddit = praw.Reddit(client_id='CLIENT_ID HERE',
+                     client_secret='CLIENT_SECRET HERE',
+                     user_agent='USER_AGENT HERE')
 
 from discord import opus
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
@@ -232,8 +236,12 @@ async def coinflip(ctx, guess: str, amount: float):
 
 @bot.command()
 async def meme():
-await bot.say(---)   
-#--- WOULD BE THE REDDIT URL
+    memes_submissions = reddit.subreddit('memes').hot()
+    post_to_pick = random.randint(1, 10)
+    for i in range(0, post_to_pick):
+        submission = next(x for x in memes_submissions if not x.stickied)
+
+    await bot.say(submission.url)
     
 @bot.command(pass_context=True)
 async def embed(ctx):
