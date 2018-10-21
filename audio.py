@@ -241,7 +241,12 @@ async def on_reaction_remove(reaction, user):
    channel = reaction.message.channel
    await bot.send_message(channel, '{} has remove {} from the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
   
-    
+@bot.command(pass_comtext=True)
+async def coinflip(ctx):
+   choices = ["Heads, "Tails]
+   rancoin = random.choice(choices)
+   await ctx.send(rancoin)
+
 @bot.command(pass_context=True)
 async def embed(ctx):
     embed = discord.Embed(title="test", description="my name imran", color=0x00ff00)
