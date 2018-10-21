@@ -227,7 +227,7 @@ async def on_reaction_remove(reaction, user):
 async def coinflip(ctx):
    choices = ["Heads", "Tails"]
    rancoin = random.choice(choices)
-   await ctx.send(rancoin)
+   await bot.send(rancoin)
 
 @bot.command(pass_context=True)
 async def embed(ctx):
