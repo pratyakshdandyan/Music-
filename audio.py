@@ -230,7 +230,17 @@ async def coinflip(ctx, guess: str, amount: float):
         await bot.say("You lost!")
         remove_dollars(author, amount)
 
+@bot.event
 
+async def on_reaction_add(reaction, user):
+   channel = reaction.message.channel
+   await bot.send_message(channel, '{} has added {} to the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
+  
+@bot.event
+async def on_reaction_remove(reaction, user):
+   channel = reaction.message.channel
+   await bot.send_message(channel, '{} has remove {} from the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
+  
     
 @bot.command(pass_context=True)
 async def embed(ctx):
