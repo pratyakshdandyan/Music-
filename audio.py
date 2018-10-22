@@ -232,10 +232,6 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-@bot.command(pass_context=True)
-async def slap(ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
-    slapped = ", ".join(x.name for x in members)
-    await ctx.send('{} just got slapped for {}'.format(slapped, reason))
 
 @bot.command(pass_context=True)
 async def embed(ctx):
