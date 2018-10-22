@@ -232,10 +232,10 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-@BSL.command(pass_context=True)
+@bot.command(pass_context=True)
 async def invite(ctx, userToInvite):
-        inviteLinq = await BSL.create_invite(destination = ctx.message.server, xkcd = True, max_uses = 1)
-        target_user = await BSL.get_user_info(userToInvite)
+        inviteLinq = await bot.create_invite(destination = ctx.message.server, xkcd = True, max_uses = 1)
+        target_user = await bot.get_user_info(userToInvite)
         await BSL.send_message(target_member, inviteLinq)
 
 @bot.command(pass_context=True)
