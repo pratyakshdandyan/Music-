@@ -223,11 +223,15 @@ async def on_reaction_remove(reaction, user):
    channel = reaction.message.channel
    await bot.send_message(channel, '{} has remove {} from the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
   
-@bot.command(pass_comtext=True)
-async def coinflip(ctx):
-   choices = ["Heads", "Tails"]
-   rancoin = random.choice(choices)
-   await bot.send(rancoin)
+
+@bot.command(pass_context=True)
+async def clear(ctx, number):
+    mgs = [] #Empty list to put all the messages in the log
+    number = int(number) #Converting the amount of messages to delete to an integer
+    async for x in bot.logs_from(ctx.message.channel, limit = number):
+        mgs.append(x)
+    await bot.delete_messages(mgs)
+
 
 @bot.command(pass_context=True)
 async def embed(ctx):
