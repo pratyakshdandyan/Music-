@@ -233,7 +233,8 @@ async def clear(ctx, number):
 @bot.command(name="kick", pass_context=True)
 @has_permissions(manage_roles=True, ban_members=True)
 async def kick(ctx, user: discord.Member):
-    await bot.kick(member)
+    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
+    await bot.kick(user)
 
 
 
