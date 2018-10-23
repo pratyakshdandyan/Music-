@@ -235,11 +235,7 @@ async def clear(ctx, number):
 async def kick(ctx, user: discord.Member):
     await bot.kick(member)
 
-@_kick.error
-async def kick_error(error, ctx):
-    if isinstance(error, MissingPermissions):
-        text = "Sorry {}, you do not have permissions to do that!".format(ctx.message.author)
-        await bot.send_message(ctx.message.channel, text)
+
 
 @bot.command(pass_context=True)
 async def embed(ctx):
