@@ -230,12 +230,11 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-@bot.command(name="kick", pass_context=True)
+@bot.command(pass_context=True)
 @has_permissions(manage_roles=True, ban_members=True)
 async def kick(ctx, user: discord.Member):
-    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
-    await bot.kick(member)
-
+    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
+    await bot.kick(user)
 
 
 @bot.command(pass_context=True)
