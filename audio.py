@@ -198,11 +198,8 @@ async def serverinfo(ctx):
     embed.set_thumbnail(url=ctx.message.server.icon_url)
     await bot.say(embed=embed)    
       
-@bot.command(pass_context=True)
 
-async def kick(ctx, user: discord.Member):
-    await bot.say(":boot: Cya, {}. Ya loser!".format(user.name))
-    await bot.kick(user)
+
  
 @bot.command(pass_context=True, no_pm=True)
 async def avatar(ctx, member: discord.Member):
@@ -232,6 +229,16 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
+@bot.command(name="kick", pass_context=True)
+@has_permissions(manage_roles=True, ban_members=True)
+async def _kick(ctx, member: Member):
+    await bot.kick(member)
+
+@_kick.error
+async def kick_error(error, ctx):
+    if isinstance(error, MissingPermissions):
+        text = "Sorry {}, you do not have permissions to do that!".format(ctx.message.author)
+        await bot.send_message(ctx.message.channel, text)
 
 @bot.command(pass_context=True)
 async def embed(ctx):
