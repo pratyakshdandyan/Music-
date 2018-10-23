@@ -6,7 +6,7 @@ import typing
 
 from discord.ext import commands
 from discord.ext.commands import Bot
-from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands import has_permissions 
 
 
 bot=commands.Bot(command_prefix='.')
