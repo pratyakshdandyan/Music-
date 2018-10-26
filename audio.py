@@ -230,7 +230,18 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-
+@bot.event
+async def on_message_delete(message):
+data = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+print("[" + (colored("{}".format(data), 'white')) + "][" + 
+  (colored("{}".format(message.server), 'blue')) + " - " + 
+  (colored("{}".format(message.channel), 'magenta')) + "] " + 
+  (colored("{}".format(message.author), 'cyan', 'on_magenta') + 
+  (colored(": {}".format(message.content), 'red'))))
+channel = bot.get_channel("logs")
+await bot.say(channel, "ALERT: Message Deleted")
+await bot.say(channel, "Message {} got deleted by {} in {}".format(message.content, message.author, channel))
+await bot.process_commands(message)
 
 @bot.command(pass_context=True)
 async def embed(ctx):
