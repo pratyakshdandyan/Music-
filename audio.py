@@ -232,7 +232,7 @@ async def clear(ctx, number):
 
 @bot.event
 async def on_message_delete(message):
-data = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+data = datetime.now().strftime
 print("[" + (colored("{}".format(data), 'white')) + "][" + 
   (colored("{}".format(message.server), 'blue')) + " - " + 
   (colored("{}".format(message.channel), 'magenta')) + "] " + 
