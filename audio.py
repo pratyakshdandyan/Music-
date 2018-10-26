@@ -230,7 +230,18 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
+@bot.command(pass_context=True)
+async def weather(ctx, index: int):
+    weather = Weather(unit=Unit.CELSIUS)
+    location = weather.lookup_by_location('toronto')
+    forecasts = location.forecast
 
+    embed = discord.Embed(title="-=-__THE WEATHER__-=-", color=0x15dbc7)
+    embed.add_field(name="Clouds", value=forecasts[index].text, inline=False) 
+    embed.add_field(name="Date", value=forecasts[index].date, inline=False)
+    embed.add_field(name="High", value=forecasts[index].high, inline=False)
+    embed.add_field(name="Low", value=forecasts[index].low, inline=False)
+    await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
 async def embed(ctx):
