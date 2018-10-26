@@ -237,10 +237,10 @@ async def weather(ctx, index: int):
     forecasts = location.forecast
 
     embed = discord.Embed(title="-=-__THE WEATHER__-=-", color=0x15dbc7)
-    embed.add_field(name="Clouds", value=forecasts[index].text, inline=False) 
-    embed.add_field(name="Date", value=forecasts[index].date, inline=False)
-    embed.add_field(name="High", value=forecasts[index].high, inline=False)
-    embed.add_field(name="Low", value=forecasts[index].low, inline=False)
+    embed.add_field(name="Clouds", value=forecasts[index].text, inline=True) 
+    embed.add_field(name="Date", value=forecasts[index].date, inline=True)
+    embed.add_field(name="High", value=forecasts[index].high, inline=True)
+    embed.add_field(name="Low", value=forecasts[index].low, inline=True)
     await bot.say(embed=embed)
 
 @bot.command(pass_context=True)
