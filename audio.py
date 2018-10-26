@@ -230,12 +230,7 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-@bot.event
-async def on_member_join(member):
-    server = member.server
-    channel = [channel for channel in client.get_all_channels() if channel.name == 'WRITE_YOUR_CHANNEL_NAME!!'][0]
-    message = 'hello {}, welcome to {}'.format(member.mention, server.name)
-    await bot.send_message(channel, message)
+
 
 @bot.command(pass_context=True)
 async def embed(ctx):
