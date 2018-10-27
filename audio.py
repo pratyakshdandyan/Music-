@@ -253,7 +253,7 @@ async def unmute(ctx, member: discord.Member):
         await bot.say(embed=embed)
        
 @bot.command(pass_context=True, hidden=True)
-async def strike((ctx, member: discord.Member):
+async def strike(ctx, member: discord.Member):
 	usr = context.message.mentions[0]
 	if db.contains(Users.id ==usr.id):
 			if db.contains((Users.id == usr.id) & (Users.swears == 2)):
