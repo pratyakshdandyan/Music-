@@ -252,6 +252,18 @@ async def unmute(ctx, member: discord.Member):
         embed=discord.Embed(title="User UnMuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
        
+@bot.command(pass_context=True, hidden=True)
+async def strike(context):
+	usr = context.message.mentions[0]
+	if db.contains(Users.id ==usr.id):
+			if db.contains((Users.id == usr.id) & (Users.swears == 2)):
+				await bot.kick(usr)
+				db.update({'swears': 0}, Users.id ==usr.id)
+			else:
+				db.update(increment('swears'), Users.id == usr.id)
+	else:
+		db.insert({'id': usr.id, 'swears': 0})
+	await bot.send_message(usr,"You have recived a strike if you recive three strikes you will be kicked")
 
 @bot.command(pass_context=True)
 async def embed(ctx):
