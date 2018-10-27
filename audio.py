@@ -178,7 +178,7 @@ async def info(ctx, user: discord.Member):
     embed.add_field(name="Highest role", value=user.top_role)
     embed.add_field(name="Joined", value=user.joined_at)
     embed.add_field(name="Created at", value=user.created_at)
-    embed.add_field(name="roles", value=user.roles)
+    embed.add_field(name="roles", value=user.roles[])
     embed.add_field(name="nickname", value=user.nick)
     embed.add_field(name="Bot", value=user.bot)
     embed.set_thumbnail(url=user.avatar_url)
