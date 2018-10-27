@@ -240,7 +240,7 @@ async def mute(ctx, member: discord.Member):
         user = ctx.message.author
         role = discord.utils.get(user.server.roles, name="Muted")
         await bot.add_roles(user, role)
-        embed=discord.Embed(title="User UnMuted!", description="**{0}** was muted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
+        embed=discord.Embed(title="User Muted!", description="**{0}** was muted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
         
 @bot.command(pass_context=True)
