@@ -182,7 +182,7 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def serverinfo(ctx):
-    embed = discord.Embed(name="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
+    embed = discord.Embed(title="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
     embed.set_author(name="Will Ryan of DAGames")
     embed.add_field(name="Created at", value=ctx.message.server.created_at, inline=True)
     embed.add_field(name="Owner", value=ctx.message.server.owner, inline=True)
