@@ -228,6 +228,7 @@ async def on_reaction_remove(reaction, user):
 
 @bot.command(pass_context=True)
 async def clear(ctx, number):
+   if ctx.message.author.server_permissions.administrator:
     mgs = [] #Empty list to put all the messages in the log
     number = int(number) #Converting the amount of messages to delete to an integer
     async for x in bot.logs_from(ctx.message.channel, limit = number):
