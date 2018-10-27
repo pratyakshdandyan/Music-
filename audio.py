@@ -240,9 +240,8 @@ async def mute(ctx, member: discord.Member):
         user = ctx.message.author
         role = discord.utils.get(user.server.roles, name="Muted")
         await bot.add_roles(user, role)
-     else:
-       embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
-       await bot.say(embed=embed)
+        embed=discord.Embed(title="User UnMuted!", description="**{0}** was muted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
+        await bot.say(embed=embed)
         
 @bot.command(pass_context=True)
 async def unmute(ctx, member: discord.Member):
@@ -251,9 +250,7 @@ async def unmute(ctx, member: discord.Member):
         await bot.add_roles(member, role)
         embed=discord.Embed(title="User UnMuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
-     else:
-        embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
-        await bot.say(embed=embed)     
+       
 
 @bot.command(pass_context=True)
 async def embed(ctx):
