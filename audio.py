@@ -234,7 +234,7 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-  @bot.command(pass_context = True)
+  @bot.command(pass_context=True)
 async def mute(ctx, member: discord.Member):
     if ctx.message.author.server_permissions.administrator:
         user = ctx.message.author
@@ -244,7 +244,7 @@ async def mute(ctx, member: discord.Member):
        embed=discord.Embed(title="Permission Denied.", description="You don't have permission to use this command.", color=0xff00f6)
        await bot.say(embed=embed)
         
-@bot.command(pass_context = True)
+@bot.command(pass_context=True)
 async def unmute(ctx, member: discord.Member):
      if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '455500545587675156':
         role = discord.utils.get(member.server.roles, name='UnMuted')
