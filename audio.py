@@ -234,7 +234,7 @@ async def clear(ctx, number):
         mgs.append(x)
     await bot.delete_messages(mgs)
 
-  @bot.command(pass_context=True)
+@bot.command(pass_context=True)
 async def mute(ctx, member: discord.Member):
     if ctx.message.author.server_permissions.administrator:
         user = ctx.message.author
