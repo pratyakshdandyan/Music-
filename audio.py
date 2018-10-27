@@ -253,7 +253,7 @@ async def unmute(ctx, member: discord.Member):
         await bot.say(embed=embed)
        
 @bot.command(pass_context=True, hidden=True)
-async def strike(context):
+async def strike((ctx, member: discord.Member):
 	usr = context.message.mentions[0]
 	if db.contains(Users.id ==usr.id):
 			if db.contains((Users.id == usr.id) & (Users.swears == 2)):
@@ -264,6 +264,13 @@ async def strike(context):
 	else:
 		db.insert({'id': usr.id, 'swears': 0})
 	await bot.send_message(usr,"You have recived a strike if you recive three strikes you will be kicked")
+		 
+@bot.command(pass_context=True)
+async def invite(context):
+	"""Generates a invite code to the server for the user to share"""
+	invite = await bot.create_invite(context.message.server,max_uses=1,xkcd=True)
+	await bot.send_message(context.message.author,"Your invite URL is {}".format(invite.url))
+	 
 
 @bot.command(pass_context=True)
 async def embed(ctx):
