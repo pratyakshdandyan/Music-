@@ -171,14 +171,14 @@ async def ping(ctx):
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color=0x00ff00)
+    embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color=0xe67e22)
     embed.add_field(name="Name", value=user.name, inline=True)
     embed.add_field(name="ID", value=user.id, inline=True)
     embed.add_field(name="Status", value=user.status, inline=True)
     embed.add_field(name="Highest role", value=user.top_role)
     embed.add_field(name="Joined", value=user.joined_at)
     embed.add_field(name="Created at", value=user.created_at)
-    embed.add_field(name="roles", value=user.roles[])
+    
     embed.add_field(name="nickname", value=user.nick)
     embed.add_field(name="Bot", value=user.bot)
     embed.set_thumbnail(url=user.avatar_url)
