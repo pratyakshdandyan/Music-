@@ -264,7 +264,7 @@ async def on_message(message):
             return
         else:
             await update_data(users, message.author, message.server)
-            number = random.randint(5,10)
+            
             await add_experience(users, message.author, number, message.server)
             await level_up(users, message.author, message.channel, message.server)
 
