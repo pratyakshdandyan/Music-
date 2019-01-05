@@ -133,7 +133,8 @@ async def queue(con):
 async def pause(ctx):
     id = ctx.message.server.id
     players[id].pause()
-
+    await bot.say("PAUSE")
+    
 @bot.command(pass_context=True)
 async def resume(ctx):
     players[ctx.message.server.id].resume()
