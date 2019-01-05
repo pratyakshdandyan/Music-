@@ -69,7 +69,7 @@ async def join(ctx):
     channel = ctx.message.author.voice.voice_channel
     await bot.join_voice_channel(channel)
     in_voice.append(ctx.message.server.id)
-
+     await bot.say("JOIN")
 
 async def player_in(con):  # After function for music
     try:
@@ -138,12 +138,14 @@ async def pause(ctx):
 @bot.command(pass_context=True)
 async def resume(ctx):
     players[ctx.message.server.id].resume()
-          
+    await bot.say("RESUME")
+    
+    
 @bot.command(pass_context=True)
 async def volume(ctx, vol:float):
     volu = float(vol)
     players[ctx.message.server.id].volume=volu
-
+    await bot.say("VOLUME")
 
 @bot.command(pass_context=True)
 async def skip(con): #skipping songs?
@@ -155,7 +157,9 @@ async def skip(con): #skipping songs?
 async def stop(con):
     players[con.message.server.id].stop()
     songs.clear()
-
+    await bot.say("STOP")
+    
+    
 @bot.command(pass_context=True)
 async def leave(ctx):
     pos=in_voice.index(ctx.message.server.id)
@@ -164,7 +168,10 @@ async def leave(ctx):
     voice_client=bot.voice_client_in(server)
     await voice_client.disconnect()
     songs.clear()
-
+    await bot.say("DISCONNECT")
+    
+    
+    
 @bot.command(pass_context=True)
 async def ping(ctx):
     await bot.say(":ping_pong: ping!! xSSS")
