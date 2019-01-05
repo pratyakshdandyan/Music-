@@ -257,8 +257,21 @@ async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
     await bot.say('{0.name} joined in {0.joined_at}'.format(member))
 
+@bot.command(pass_context=True)
+async def kick(ctx, member: discord.member):
+    if ctx.message.author.server_permissions.administrator:
+       await bot.kick(member)
 
- 
+        
+@bot.command(pass_context=True)
+async def ban(ctx, member: discord.member, days: int = 1):
+    if "449706643710541824" in [role.id for role in message.author.roles]:
+        await bot.ban(member, days)
+    else:
+        await bot.say("You don't have permission to use this command.")
+        
+        
+        
         
 @bot.command(pass_context=True)
 async def embed(ctx):
