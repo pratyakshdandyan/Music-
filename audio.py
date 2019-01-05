@@ -7,7 +7,7 @@ import json
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions 
-
+from discord.utils import get
 
 bot=commands.Bot(command_prefix='.')
 
@@ -271,8 +271,17 @@ async def ban(ctx, member: discord.Member, days: int = 1):
     else:
         await bot.say("You don't have permission to use this command.")
         
-        
-        
+ @bot.command(pass_context=True)
+async def get_id(ctx):
+    await bot.say("Channel id: {}".format(ctx.message.channel.id))       
+ 
+@bot.event
+async def on_member_join(member):
+    channel = get(member.server.channels, name="general")
+    await bot.send_message(channel,"welcome")
+
+
+
         
 @bot.command(pass_context=True)
 async def embed(ctx):
