@@ -247,8 +247,9 @@ async def mute(ctx, member: discord.Member):
 @bot.command(pass_context=True)
 async def unmute(ctx, member: discord.Member):
      if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '455500545587675156':
-        role = discord.utils.get(member.server.roles, name='UnMuted')
-        await bot.add_roles(member, role)
+        user = ctx.message.author
+        role = discord.utils.get(user.server.roles, name="UnMuted")
+        await bot.add_roles(user, role)
         embed=discord.Embed(title="User UnMuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
 
@@ -258,13 +259,13 @@ async def joined(ctx, member: discord.Member):
     await bot.say('{0.name} joined in {0.joined_at}'.format(member))
 
 @bot.command(pass_context=True)
-async def kick(ctx, member: discord.member):
+async def kick(ctx, member: discord.Member):
     if ctx.message.author.server_permissions.administrator:
        await bot.kick(member)
 
         
 @bot.command(pass_context=True)
-async def ban(ctx, member: discord.member, days: int = 1):
+async def ban(ctx, member: discord.Member, days: int = 1):
     if "449706643710541824" in [role.id for role in message.author.roles]:
         await bot.ban(member, days)
     else:
