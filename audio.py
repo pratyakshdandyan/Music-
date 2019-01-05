@@ -252,7 +252,23 @@ async def unmute(ctx, member: discord.Member):
         embed=discord.Embed(title="User UnMuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
 
-
+@Bot.command(pass_context=True)
+async def help(ctx):
+    helpEm = discord.Embed(title="!help", description="Shows the list of commands", color=0x5555FF)
+    helpEm.add_field(name=":tada: Event Commands", value="!buy <item>", inline=False)
+    helpEm.add_field(name="<:member:455500545587675156> User Commands", value="!profile [@user]\n!pay <@user> <amount>\n!ransack <@user> <amount>\n!ping\n!connection", inline=False)
+    specialCommands = ""
+    if "☆" in [role.name for role in ctx.message.author.roles] or "Staff" in [role.name for role in ctx.message.author.roles] or ctx.message.author.id in admin_bypass:
+        specialCommands = specialCommands + "!hug <@user>\n"
+    if "☆☆" in [role.name for role in ctx.message.author.roles] or "Staff" in [role.name for role in ctx.message.author.roles] or ctx.message.author.id in admin_bypass:
+        specialCommands = specialCommands + "!fight <@user>\n"
+    if "☆" in [role.name for role in ctx.message.author.roles] or "☆☆" in [role.name for role in ctx.message.author.roles] or "☆☆☆" in [role.name for role in ctx.message.author.roles] or ctx.message.author.id in admin_bypass:     
+        helpEm.add_field(name=":gem: Special Commands", value=specialCommands, inline=False)    
+    if "Staff" in [role.name for role in ctx.message.author.roles] or ctx.message.author.id in admin_bypass:
+        helpEm.add_field(name="<:mooderator:486269879327129601> Staff Commands", value="!warn <@user> <reason>\n!kick <@user> <reason>\n!mute <@user> <severity> <reason>\n!ban <@user> <severity> <reason>", inline=False)
+    if "Admin" in [role.name for role in ctx.message.author.roles] or ctx.message.author.id in admin_bypass:
+        helpEm.add_field(name="<:Staff:486271130148012055> Admin Commands", value="!enable <command>\n!disable <command>\n!badge <add|remove> <emoji> <@user>\n!statmod <@user> <set|add|sub> <balance|rank|tier|statwipe> {amount}", inline=False)
+    await ctx.message.channel.send(embed=helpEm)
 
 
  
