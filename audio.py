@@ -252,7 +252,10 @@ async def unmute(ctx, member: discord.Member):
         embed=discord.Embed(title="User UnMuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
 
-
+@bot.command(pass_context=True)
+async def joined(ctx, member: discord.Member):
+    """Says when a member joined."""
+    await bot.say('{0.name} joined in {0.joined_at}'.format(member))
 
 
  
