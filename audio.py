@@ -271,7 +271,8 @@ async def ban(ctx, member: discord.Member, days: int = 1):
     else:
         await bot.say("You don't have permission to use this command.")
         
- @bot.command(pass_context=True)
+
+@bot.command(pass_context=True)
 async def get_id(ctx):
     await bot.say("Channel id: {}".format(ctx.message.channel.id))       
  
