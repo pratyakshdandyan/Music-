@@ -146,8 +146,8 @@ async def volume(ctx, vol:float):
 
 @bot.command(pass_context=True)
 async def skip(con): #skipping songs?
-  songs[con.message.server.id]
-    
+    songs[con.message.server.id].skip()
+    songs.skip()
     
     
 @bot.command(pass_context=True)
@@ -246,7 +246,7 @@ async def mute(ctx, member: discord.Member):
         
 @bot.command(pass_context=True)
 async def unmute(ctx, member: discord.Member):
-     if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '455500545587675156':
+     if ctx.message.author.server_permissions.administrator:
         user = ctx.message.author
         role = discord.utils.get(user.server.roles, name="UnMuted")
         await bot.add_roles(user, role)
