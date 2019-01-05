@@ -252,7 +252,7 @@ async def unmute(ctx, member: discord.Member):
         embed=discord.Embed(title="User UnMuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
         await bot.say(embed=embed)
 
-@Bot.command(pass_context=True)
+@bot.command(pass_context=True)
 async def help(ctx):
     helpEm = discord.Embed(title="!help", description="Shows the list of commands", color=0x5555FF)
     helpEm.add_field(name=":tada: Event Commands", value="!buy <item>", inline=False)
