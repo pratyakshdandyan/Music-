@@ -61,7 +61,7 @@ async def checking_voice(ctx):
 @bot.event
 async def on_ready():
    bot.loop.create_task(all_false())
-   await bot.change_presence(game=discord.Game(name='Pnada ka beta'))
+   await bot.change_presence(game=discord.Game(name='Test'))
    print(bot.user.name)
     
 @bot.command(pass_context=True)
@@ -266,7 +266,7 @@ async def kick(ctx, member: discord.Member):
         
 @bot.command(pass_context=True)
 async def ban(ctx, member: discord.Member, days: int = 1):
-    if "449706643710541824" in [role.id for role in message.author.roles]:
+    if ctx.message.author.server_permissions.administrator:
         await bot.ban(member, days)
     else:
         await bot.say("You don't have permission to use this command.")
