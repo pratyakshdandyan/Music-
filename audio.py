@@ -283,13 +283,21 @@ async def ban(ctx, member: discord.Member, days: int = 1):
 @bot.command(pass_context=True)
 async def get_id(ctx):
     await bot.say("Channel id: {}".format(ctx.message.channel.id))       
- 
+    
+    
+    
+    
 @bot.event
 async def on_member_join(member):
     channel = get(member.server.channels, name="general")
     await bot.send_message(channel,"welcome")
 
 
+
+    
+    
+    
+    
 
         
 @bot.command(pass_context=True)
