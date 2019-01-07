@@ -69,7 +69,7 @@ async def join(ctx):
     channel = ctx.message.author.voice.voice_channel
     await bot.join_voice_channel(channel)
     in_voice.append(ctx.message.server.id)
-     await bot.say("JOIN")
+    await bot.say("JOIN")
 
 async def player_in(con):  # After function for music
     try:
