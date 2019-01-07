@@ -292,7 +292,7 @@ async def repeat(ctx, times : int, content='repeating...'):
    
 @bot.event
 async def on_message(message):
-    if message.content.startswith('!deleteme'):
+    if message.content.startswith('deleteme'):
         msg = await client.send_message(message.channel, 'I will delete myself now...')
         await bot.delete_message(msg)
 
@@ -303,7 +303,7 @@ async def on_message_delete(message):
   
 @bot.event
 async def on_message(message):
-    if message.content.startswith('!editme'):
+    if message.content.startswith('editme'):
         msg = await client.send_message(message.author, '10')
         await asyncio.sleep(3)
         await bot.edit_message(msg, '40')
@@ -319,7 +319,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.startswith('!hello'):
+    if message.content.startswith('hello'):
         msg = 'Hello {0.author.mention}'.format(message)
         await bot.send_message(message.channel, msg)
   
