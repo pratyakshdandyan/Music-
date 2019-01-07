@@ -284,8 +284,46 @@ async def ban(ctx, member: discord.Member, days: int = 1):
 async def get_id(ctx):
     await bot.say("Channel id: {}".format(ctx.message.channel.id))       
     
-    
-    
+@bot.command()
+async def repeat(ctx, times : int, content='repeating...'):
+    """Repeats a message multiple times."""
+    for i in range(times):
+        await bot.say(content) 
+   
+@bot.event
+async def on_message(message):
+    if message.content.startswith('!deleteme'):
+        msg = await client.send_message(message.channel, 'I will delete myself now...')
+        await bot.delete_message(msg)
+
+@bot.event
+async def on_message_delete(message):
+    fmt = '{0.author.name} has deleted the message:\n{0.content}'
+    await bot.send_message(message.channel, fmt.format(message)) 
+  
+@bot.event
+async def on_message(message):
+    if message.content.startswith('!editme'):
+        msg = await client.send_message(message.author, '10')
+        await asyncio.sleep(3)
+        await bot.edit_message(msg, '40')
+
+@bot.event
+async def on_message_edit(before, after):
+    fmt = '**{0.author}** edited their message:\n{1.content}'
+    await bot.send_message(after.channel, fmt.format(after, before))
+  
+@bot.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == bot.user:
+        return
+
+    if message.content.startswith('!hello'):
+        msg = 'Hello {0.author.mention}'.format(message)
+        await bot.send_message(message.channel, msg)
+  
+  
     
 @bot.event
 async def on_member_join(member):
