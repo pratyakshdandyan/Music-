@@ -290,8 +290,31 @@ async def repeat(ctx, times : int, content='repeating...'):
     for i in range(times):
         await bot.say(content) 
    
+@bot.command()
+async def invite():
+  	"""Bot Invite"""
+  	await bot.say("\U0001f44d")
+  	await bot.whisper("Add me with this link {}".format(discord.utils.oauth_url(bot.user.id)))
 
-  
+@bot.event
+async def send_cmd_help(ctx):
+    if ctx.invoked_subcommand:
+        pages = bot.formatter.format_help_for(ctx, ctx.invoked_subcommand)
+        for page in pages:
+            em = discord.Embed(description=page.strip("```").replace('<', '[').replace('>', ']'),
+                               color=discord.Color.blue())
+            await bot.send_message(ctx.message.channel, embed=em)
+    else:
+        pages = bot.formatter.format_help_for(ctx, ctx.command)
+        for page in pages:
+            em = discord.Embed(description=page.strip("```").replace('<', '[').replace('>', ']'),
+                               color=discord.Color.blue())
+            await bot.send_message(ctx.message.channel, embed=em)    
+    
+    
+    
+    
+    
   
     
 @bot.event
