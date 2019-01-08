@@ -319,7 +319,7 @@ async def guildcount():
     
     
    
- @bot.command(pass_context=True)
+@bot.command(pass_context=True)
 async def guildid(ctx):
 	  """Guild ID"""
 	  await bot.say("`{}`".format(ctx.message.server.id))   
@@ -345,7 +345,7 @@ async def setgame(ctx, *, game):
         await bot.send_cmd_help(ctx)    
     
     
- @bot.command(pass_context=True, hidden=True)
+@bot.command(pass_context=True, hidden=True)
 async def setname(ctx, *, name):
     if ctx.message.author.id not in owner:
         return
