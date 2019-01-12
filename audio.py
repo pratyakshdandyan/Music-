@@ -423,9 +423,9 @@ async def help(ctx):
 	
 		  
 		  
-    emb.add_field(
+    embed.add_field(
         name='Help', value='s.help\ns.help fun\ns.help tools\ns.help music')
-    emb.set_footer(text='Created By: imran',
+    embed.set_footer(text='Created By: imran',
                 icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png')
     await bot.say(embed=embed)
     
