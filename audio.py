@@ -9,7 +9,7 @@ from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions 
 from discord.utils import get,find
 import requests as rq
-import apiai
+
 import random
 import msg_track
 import time
