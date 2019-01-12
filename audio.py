@@ -481,6 +481,20 @@ async def fun(con):
     Creates a text channel that connects to other servers\n\
     Creates a countdown timer', inline=True)
     await bot.send_message(con.message.channel, embed=msg)
+	
+	
+@bot.event
+async def on_message(message):
+    if message.content.startswith('deleteme'):
+        msg = await client.send_message(message.channel, 'I will delete myself now...')
+        await bot.delete_message(msg)
+
+@bot.event
+async def on_message_delete(message):
+    fmt = '{0.author.name} has deleted the message:\n{0.content}'
+    await bot.send_message(message.channel, fmt.format(message))	
+	
+
     
 
         
