@@ -483,11 +483,7 @@ async def fun(con):
     await bot.send_message(con.message.channel, embed=msg)
 	
 	
-@bot.event
-async def on_message(message):
-    if message.content.startswith('deleteme'):
-        msg = await client.send_message(message.channel, 'I will delete myself now...')
-        await bot.delete_message(msg)
+
 
 @bot.event
 async def on_message_delete(message):
