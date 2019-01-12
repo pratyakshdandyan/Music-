@@ -10,7 +10,7 @@ from discord.ext.commands import has_permissions
 from discord.utils import get
 
 bot=commands.Bot(command_prefix='.')
-
+bot.remove_command('help')
 
 from discord import opus
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
@@ -195,7 +195,7 @@ async def info(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def serverinfo(ctx):
     embed = discord.Embed(title="{}'s info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
-    embed.set_author(name="Will Ryan of DAGames")
+    embed.set_author(name="Team Ghost")
     embed.add_field(name="Created at", value=ctx.message.server.created_at, inline=True)
     embed.add_field(name="Owner", value=ctx.message.server.owner, inline=True)
     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
@@ -427,7 +427,7 @@ async def help(ctx, msg):
         name='Help', value='s.help\ns.help fun\ns.help tools\ns.help music')
     emb.set_footer(text='Created By: imran',
                 icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png')
-    await bot.send_message(msg.channel,embed=emb)
+    await bot.say(embed=embed)
     
     
     
@@ -438,7 +438,7 @@ async def help(ctx, msg):
 async def embed(ctx):
     embed = discord.Embed(title="test", description="my name imran", color=0x00ff00)
     embed.set_footer(text="this is a footer")
-    embed.set_author(name="Will Ryan of DAGames")
+    embed.set_author(name="Team Ghost")
     embed.add_field(name="This is a field", value="no it isn't", inline=True)
     await bot.say(embed=embed)
    
