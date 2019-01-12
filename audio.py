@@ -393,7 +393,7 @@ async def on_member_join(member):
     
 @bot.event
 async def on_member_join(member):
-    channel = get(member.server.channels, name="general")
+    channel = get(member.server.channels, name="welcome")
     await bot.send_message(channel,"welcome")
 	
 	
