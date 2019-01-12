@@ -396,8 +396,8 @@ async def on_member_join(member):
 	
 
 @bot.command(pass_context=True)
-async def help(ctx, msg):
-    emb= discord.Embed(title=None, description='**Help command for yo bot**', color=0x00ff00)
+async def help(ctx):
+    emb= discord.Embed(title=None, description="Help command for yo bot", color=0x00ff00)
     emb.add_field(name='Help Server',value='https://discord.gg/cQZBYFV', inline=True)
     emb.add_field(name='Command Prefix', value='**.**', inline=True)
     emb.set_thumbnail(url='https://cdn.discordapp.com/avatars/501659280680681472/5a564024b1095fef0caf7529f79439d4.webp?size=1024')
