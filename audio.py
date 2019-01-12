@@ -9,11 +9,7 @@ from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions 
 from discord.utils import get,find
 import requests as rq
-
 import random
-import msg_track
-import time
-import systems as sys
 import events
 
 bot=commands.Bot(command_prefix='.')
@@ -430,9 +426,7 @@ async def help(ctx):
     embed.add_field(name='guildid', value='Guild ID', inline=True)
     embed.add_field(name='guildicon', value='Guild Icon', inline=True)  
     embed.add_field(name='joined', value='Says when a member joined.', inline=True)
-    embed.add_field(name='repeat', value=' Repeats a message multiple times.', inline=True)
-
-		  
+    embed.add_field(name='repeat', value=' Repeats a message multiple times.', inline=True)		  
     embed.add_field(
         name='Tools', value='.help\n.kick\n.ban\n.mute\n.unmute\n.clear')
     embed.set_footer(text='Created By: imran',
@@ -440,57 +434,7 @@ async def help(ctx):
     await bot.say(embed=embed)
     
 
-async def fun(con):
-    msg = discord.Embed(title=None, description='**Fun commands for Kurusai**')
-    msg.add_field(name='Name', value='s.dice <min> <max>\n\
-    s.game <name>\n\
-    s.watching <name>\n\
-    s.listening <name>\n\
-    s.catfact\n\
-    s.dogfact\n\
-    s.bunnyfact\n\
-    s.pifact\n\
-    s.randomanime\n\
-    s.randommovie\n\
-    s.randomshow\n\
-    s.cat\n\
-    s.cookie <@user>\n\
-    s.neko or s.neko nsfw\n\
-    s.dog\n\
-    s.bunny\n\
-    s.tts <message>\n\
-    s.say <message>\n\
-    s.worldchat\n\
-    s.timer <time>', inline=True)
-    msg.add_field(name='Command Usage', value='Role random number from <min> <max>\n\
-    Changes game playing status of bot\n\
-    Changes watching status of bot\n\
-    Changes Listening status of bot\n\
-    Get random cat fact\n\
-    Get a random dog fact\n\
-    Get a random bunny fact\n\
-    Get a random pi(3.14) fact\n\
-    Get random anime\n\
-    Get random movie\n\
-    Get random show\n\
-    Get a picture of random cat\n\
-    Give random amount of cookie to mentioned user\n\
-    Random Neko girl picture\n\
-    Random bunny picture\n\
-    Get random dog picture\n\
-    Use text to speech on bot\n\
-    Make the bot say what you want\n\
-    Creates a text channel that connects to other servers\n\
-    Creates a countdown timer', inline=True)
-    await bot.send_message(con.message.channel, embed=msg)
-	
-	
-	
-	
-	
-	
-	
-	
+
     
     
 
