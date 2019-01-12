@@ -392,9 +392,42 @@ async def on_member_join(member):
 async def on_member_join(member):
     channel = get(member.server.channels, name="general")
     await bot.send_message(channel,"welcome")
+	
+	
 
-
-
+@bot.command(pass_context=True)
+async def help(ctx, msg):
+    emb= discord.Embed(title=None, description='**Help command for yo bot**', color=0x00ff00)
+    emb.add_field(name='Help Server',value='https://discord.gg/cQZBYFV', inline=True)
+    emb.add_field(name='Command Prefix', value='**.**', inline=True)
+    emb.set_thumbnail(url='https://cdn.discordapp.com/avatars/501659280680681472/5a564024b1095fef0caf7529f79439d4.webp?size=1024')
+    emb.add_field(name='join', value='.join', inline=True)
+    emb.add_field(name='play', value='.play', inline=True)
+    emb.add_field(name='queue', value='.queue', inline=True)
+    emb.add_field(name='resume', value='.resume', inline=True)     
+  
+    emb.add_field(name='pause', value='.pause', inline=True)
+    emb.add_field(name='volume', value='.volume', inline=True)
+    emb.add_field(name='skip', value='.skip', inline=True)
+    emb.add_field(name='stop', value='.stop', inline=True)
+    emb.add_field(name='leave', value='.leave', inline=True)
+    emb.add_field(name='ping', value='.ping', inline=True)	  
+    emb.add_field(name='info', value='.info @user', inline=True)	  
+    emb.add_field(name='serverinfo', value='.serverinfo', inline=True)	  
+    emb.add_field(name='avatar', value='.avatar @user', inline=True)  
+    emb.add_field(name='clear', value='.clear', inline=True)	 
+    emb.add_field(name='mute', value='.mute @user', inline=True)
+    emb.add_field(name='unmute', value='.unmete @user', inline=True)
+    emb.add_field(name='kick', value='.kick @user', inline=True)
+	
+	
+		  
+		  
+    emb.add_field(
+        name='Help', value='s.help\ns.help fun\ns.help tools\ns.help music')
+    emb.set_footer(text='Created By: imran',
+                icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png')
+    await bot.send_message(msg.channel,embed=emb)
     
     
     
