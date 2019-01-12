@@ -230,8 +230,8 @@ async def avatar(ctx, member: discord.Member):
 async def on_reaction_add(reaction, user):
    channel = reaction.message.channel
 
-   1a = get(member.server.channels, name="welcome")
-   await bot.send_message(1a,'{} has added {} to the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
+   lol = get(user.server.channels, name="welcome")
+   await bot.send_message(lol,'{} has added {} to the message: {}'.format(user.name, reaction.emoji, reaction.message.content))
   
 @bot.event
 async def on_reaction_remove(reaction, user):
