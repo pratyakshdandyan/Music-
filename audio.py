@@ -405,7 +405,7 @@ async def help(ctx):
     embed.add_field(name='play', value='.play', inline=True)
     embed.add_field(name='queue', value='.queue', inline=True)
     embed.add_field(name='resume', value='.resume', inline=True)     
-  
+    embed.add_field(name='invite', value='Bot invite', inline=True)
     embed.add_field(name='pause', value='.pause', inline=True)
     embed.add_field(name='volume', value='.volume', inline=True)
     embed.add_field(name='skip', value='.skip', inline=True)
@@ -418,13 +418,16 @@ async def help(ctx):
     embed.add_field(name='clear', value='.clear', inline=True)	 
     embed.add_field(name='mute', value='.mute @user', inline=True)
     embed.add_field(name='unmute', value='.unmete @user', inline=True)
-    embed.add_field(name='kick', value='.kick @user', inline=True)
-	
-	
-		  
+    embed.add_field(name='get_id', value='.get_id', inline=True)
+    embed.add_field(name='guildcount', value='Bot Guild Count', inline=True)
+    embed.add_field(name='guildid', value='Guild ID', inline=True)
+    embed.add_field(name='guildicon', value='Guild Icon', inline=True)  
+    embed.add_field(name='joined', value='Says when a member joined.', inline=True)
+    embed.add_field(name='repeat', value=' Repeats a message multiple times.', inline=True)
+
 		  
     embed.add_field(
-        name='Help', value='s.help\ns.help fun\ns.help tools\ns.help music')
+        name='Tools', value='.help\n.kick\n.ban\n.mute\n.unmute\n.clear')
     embed.set_footer(text='Created By: imran',
                 icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png')
     await bot.say(embed=embed)
