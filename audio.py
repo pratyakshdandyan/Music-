@@ -446,7 +446,7 @@ async def help(ctx):
 
 
     embed.set_footer(text='Created By: imran',
-                icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png)
+                icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png')
     await bot.say(embed=embed)
     
 
