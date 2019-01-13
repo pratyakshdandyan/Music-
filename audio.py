@@ -285,6 +285,18 @@ async def ban(ctx, member: discord.Member, days: int = 1):
         await bot.ban(member, days)
     else:
         await bot.say("You don't have permission to use this command.")
+	
+	
+@bot.command(pass_context=True)
+async def unban(con,user:int):
+    try:
+        who=await bot.get_user_info(user)
+        await bot.unban(con.message.server,who)
+        await bot.say("User has been unbanned")
+    except:
+        await bot.say("Something went wrong")
+		
+
         
 
 @bot.command(pass_context=True)
@@ -430,11 +442,11 @@ async def help(ctx):
     embed.add_field(name='guildid', value='Guild ID', inline=True)
     embed.add_field(name='guildicon', value='Guild Icon', inline=True)  
     embed.add_field(name='joined', value='Says when a member joined.', inline=True)
-    embed.add_field(name='repeat', value=' Repeats a message multiple times.', inline=True)		  
-    embed.add_field(
-        name='Tools', value='.help\n.kick\n.ban\n.mute\n.unmute\n.clear')
+    embed.add_field(name='repeat', value=' Repeats a message multiple times.', inline=True)	
+
+me = await bot.get_user_info('455500545587675156')
     embed.set_footer(text='Created By: imran',
-                icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png')
+                icon_url=me.avatar_url)
     await bot.say(embed=embed)
     
 
@@ -495,6 +507,22 @@ async def on_message_edit(before, after):
     fmt = '**{0.author}** edited their message:\n{1.content}'
     await bot.send_message(after.channel, fmt.format(after, before))
     
+
+
+def get_prefix(bot, msg):
+    """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
+
+    # Notice how you can use spaces in prefixes. Try to keep them simple though.
+    prefixes = ['s.', 'a.','.']
+
+
+    return commands.when_mentioned_or(*prefixes)(bot, msg)
+
+bot = commands.Bot(command_prefix=get_prefix,description='Discord multiple command prefix')
+
+
+
+
 
         
 @bot.command(pass_context=True)
