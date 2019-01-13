@@ -444,9 +444,9 @@ async def help(ctx):
     embed.add_field(name='joined', value='Says when a member joined.', inline=True)
     embed.add_field(name='repeat', value=' Repeats a message multiple times.', inline=True)	
 
-me = await bot.get_user_info('455500545587675156')
+
     embed.set_footer(text='Created By: imran',
-                icon_url=me.avatar_url)
+                icon_url='https://raw.githubusercontent.com/CharmingMother/Kurusaki/master/img/Dong%20Cheng.png)
     await bot.say(embed=embed)
     
 
