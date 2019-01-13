@@ -509,16 +509,7 @@ async def on_message_edit(before, after):
     
 
 
-def get_prefix(bot, msg):
-    """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
 
-    # Notice how you can use spaces in prefixes. Try to keep them simple though.
-    prefixes = ['s.', 'a.','.']
-
-
-    return commands.when_mentioned_or(*prefixes)(bot, msg)
-
-bot = commands.Bot(command_prefix=get_prefix,description='Discord multiple command prefix')
 
 
 
