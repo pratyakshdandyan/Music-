@@ -512,12 +512,39 @@ async def on_message_delete(message):
 async def on_message_edit(before, after):
     fmt = '**{0.author}** edited their message:\n{1.content}'
     await bot.send_message(after.channel, fmt.format(after, before))
+	
+	
     
+@bot.command(pass_context=True)
+async def online(con):
+    amt = 0
+    for i in con.message.server.members:
+        if i.status != discord.Status.offline:
+            amt += 1
+    await bot.send_message(con.message.channel, "**Currently `{}` Members Online In `{}`**".format(amt,con.message.server.name))
 
 
 
+@bot.command(pass_context=True)
+async def offline(con):
+    amt = 0
+    for i in con.message.server.members:
+        if i.status == discord.Status.offline:
+            amt += 1
+    await bot.send_message(con.message.channel, "**Currently `{}` Members Offline In `{}`**".format(amt,con.message.server.name))
 
 
+
+import random
+@bot.command(pass_context=True)
+async def dice( con, min1=1, max1=6):
+    """GENERATES A RANDOM FROM MIN - MAX
+    MIN DEFAULT = 1
+    MAX DEFAULT = 6
+    MIN1 = THE SMALLEST LIMIT TO GENERATE A RANDOM NUMBER
+    MAX1 = THE LIMIT TO GENERATE A RANDOM NUMBER"""
+    r = random.randint(min1, max1)
+    await bot.send_message(con.message.channel, "**{}**".format(r))
 
 
 
