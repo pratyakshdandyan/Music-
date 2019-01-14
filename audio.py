@@ -273,10 +273,16 @@ async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
     await bot.say('{0.name} joined in {0.joined_at}'.format(member))
 
+
+
 @bot.command(pass_context=True)
-async def kick(ctx, member: discord.Member):
-    if ctx.message.author.server_permissions.administrator:
-       await bot.kick(member)
+async def kick(con,user:discord.Member=None):
+    if con.message.author.server_permissions.kick_members == True or con.message.author.server_permissions.administrator == True:
+        await bot.kick(user)
+        await bot.send_message(con.message.channel,"User {} has been kicked".format(user.name))
+    else:
+        await bot.send_message(con.message.channel, "**Insufficient Permissions To Kick Member**")
+
 
         
 @bot.command(pass_context=True)
