@@ -513,16 +513,7 @@ async def fun(con):
 	
 
 
-@bot.event
-async def on_message_delete(message):
-    fmt = '{0.author.name} has deleted the message:\n{0.content}'
-    await bot.send_message(message.channel, fmt.format(message))	
-	
-@bot.event
-async def on_message_edit(before, after):
-    fmt = '**{0.author}** edited their message:\n{1.content}'
-    await bot.send_message(after.channel, fmt.format(after, before))
-	
+
 	
     
 @bot.command(pass_context=True)
